@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>editar perfil</h3>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <div class="mb-2">{{ form.name.label }} {{ form.name(class_='form-control') }}</div>
+  <div class="mb-2">{{ form.title.label }} {{ form.title(class_='form-control') }}</div>
+  <div class="mb-2">{{ form.phone.label }} {{ form.phone(class_='form-control') }}</div>
+  <div class="mb-2">{{ form.email.label }} {{ form.email(class_='form-control') }}</div>
+  <div class="mb-2">{{ form.linkedin.label }} {{ form.linkedin(class_='form-control') }}</div>
+  <div class="mb-2">{{ form.github.label }} {{ form.github(class_='form-control') }}</div>
+  <div class="mb-2">{{ form.about.label }} {{ form.about(class_='form-control', rows=4) }}</div>
+  <div>{{ form.submit(class_='btn btn-success') }}</div>
+</form>
+{% endblock %}

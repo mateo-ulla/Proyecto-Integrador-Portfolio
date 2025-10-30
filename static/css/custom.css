@@ -1,0 +1,48 @@
+/* custom.css */
+
+:root{
+    --bg:#0b0b0b;
+    --card:#1b1b1b;
+    --muted:#9aa0a6;
+    --accent:#cfc7b8; /* beige */
+  }
+  
+  body{
+    background: var(--bg);
+    color: #e6e6e6;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  
+  /* imagen de perfil con sutil transformacion (animacion) */
+  .profile-img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  }
+  .profile-img:hover{
+    transform: translateY(-6px) scale(1.03) rotate(-1deg);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.8);
+  }
+  
+  .card{
+    background: var(--card);
+    border: none;
+  }
+  
+  .skill-badge{
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 0.5rem 0.75rem;
+    border-radius: 10px;
+    transition: transform 0.25s ease;
+  }
+  .skill-badge:hover{
+    transform: translateY(-4px);
+  }
+  
+  @media (max-width: 576px){
+    .profile-img{ width: 140px; height:140px; }
+  }
+  
