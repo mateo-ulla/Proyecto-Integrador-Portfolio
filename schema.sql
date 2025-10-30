@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS admin (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- tabla personal (solo un registro con id=1)
+-- tabla personal 
 CREATE TABLE IF NOT EXISTS personal (
   id INT PRIMARY KEY,
   name VARCHAR(200),
@@ -40,19 +40,19 @@ CREATE TABLE IF NOT EXISTS skills (
   level INT DEFAULT 1
 );
 
--- seed inicial: personal con id=1
+-- seed inicial
 INSERT INTO personal (id, name, title, phone, email, about, linkedin, github)
-VALUES (1, 'mateo ulla', 'estudiante - programacion y ai', '(351) 810-4498', 'mateoullaa@gmail.com',
-' estudiante de programacion con orientacion en inteligencia artificial y finanzas. fundador de emprendimiento de detailing. en busca de oportunidades.', 
+VALUES (1, 'Mateo ulla', 'Estudiante - Programacion y AI', '(351) 810-4498', 'mateoullaa@gmail.com',
+' Estudiante de Programacion con orientacion en Inteligencia Artificial y Finanzas. Fundador de emprendimiento de detailing. En busca de oportunidades.', 
 'https://ar.linkedin.com/in/mateo-ulla-08857636b', 'https://github.com/mateo-ulla');
 
--- algunos datos de ejemplo
+-- datos de ejemplo
 INSERT INTO experience (company, role, start_date, end_date, description) VALUES
-('prodetailing', 'fundador', '2021', '2023', 'creacion y gestion de emprendimiento de detailing automotriz. marketing digital y atención a clientes.'),
-('instituto tecnico renault', 'practicas', '2024', NULL, 'practicas y proyectos en programacion y datos.');
+('Prodetailing', 'Fundador', '2020', '2023', 'Creacion y gestion de emprendimiento de detailing automotriz. Marketing digital y Atencion al cliente.'),
+('Instituto Tecnico Renault', 'Estudios', '2023', "Actualidad", 'Estudios y proyectos en programacion.');
 
 INSERT INTO skills (name, level) VALUES
-('python', 5),
-('sql', 4),
-('flask', 4),
-('javascript', 3);
+('Python', 5),
+('SQL', 4),
+('Flask', 4),
+('Javascript', 3);
