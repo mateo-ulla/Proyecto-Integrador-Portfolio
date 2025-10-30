@@ -9,16 +9,16 @@
     <h4 class="text-muted">{{ personal.title }}</h4>
     <p class="lead">{{ personal.about }}</p>
     <p>
-      <a href="{{ personal.linkedin }}" target="_blank">linkedin</a> |
-      <a href="{{ personal.github }}" target="_blank">github</a> |
-      <a href="{{ url_for('download_cv') }}">descargar cv</a>
+      <a href="{{ personal.linkedin }}" target="_blank">Linkedin</a> |
+      <a href="{{ personal.github }}" target="_blank">Github</a> |
+      <a href="{{ url_for('download_cv') }}">Descargar CV</a>
     </p>
   </div>
 </div>
 
 <hr class="my-4">
 
-<h3>experiencia</h3>
+<h3>Experiencia</h3>
 <div class="row">
   {% for e in experiences %}
   <div class="col-md-6 mb-3">
