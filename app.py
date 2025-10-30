@@ -43,10 +43,10 @@ def login():
             user = cur.fetchone()
         if user and check_password_hash(user['password'], password):
             session['admin'] = user['username']
-            flash('acceso correcto', 'success')
+            flash('Acceso correcto', 'success')
             return redirect(url_for('admin_edit'))
         else:
-            flash('credenciales invalidas', 'danger')
+            flash('Credenciales invalidas', 'danger')
     return render_template('login.html', form=form)
 
 # decorador simple para proteger admin (no usar en produccion sin mejoras)
@@ -76,7 +76,7 @@ def admin_edit():
             'about': form.about.data
         }
         personal_model.update(data)
-        flash('datos personales actualizados', 'success')
+        flash('Datos personales actualizados', 'success')
         return redirect(url_for('admin_edit'))
     return render_template('admin_edit.html', form=form, personal=personal)
 
@@ -84,7 +84,7 @@ def admin_edit():
 @app.route('/logout')
 def logout():
     session.pop('admin', None)
-    flash('sesion cerrada', 'info')
+    flash('Sesion cerrada', 'info')
     return redirect(url_for('index'))
 
 if __name__ == '__main__':

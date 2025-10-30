@@ -42,13 +42,13 @@ CREATE TABLE IF NOT EXISTS skills (
 
 -- seed inicial
 INSERT INTO personal (id, name, title, phone, email, about, linkedin, github)
-VALUES (1, 'Mateo ulla', 'Estudiante - Programacion y AI', '(351) 810-4498', 'mateoullaa@gmail.com',
+VALUES (1, 'Mateo Ulla', 'Estudiante - Programacion y AI', '(351) 810-4498', 'mateoullaa@gmail.com',
 ' Estudiante de Programacion con orientacion en Inteligencia Artificial y Finanzas. Fundador de emprendimiento de detailing. En busca de oportunidades.', 
 'https://ar.linkedin.com/in/mateo-ulla-08857636b', 'https://github.com/mateo-ulla');
 
 -- datos de ejemplo
 INSERT INTO experience (company, role, start_date, end_date, description) VALUES
-('Prodetailing', 'Fundador', '2020', '2023', 'Creacion y gestion de emprendimiento de detailing automotriz. Marketing digital y Atencion al cliente.'),
+('Prodetailing', 'Fundador', '2020', '2023', 'Creacion y gestion de emprendimiento de detailing automotriz. Marketing digital y atencion al cliente.'),
 ('Instituto Tecnico Renault', 'Estudios', '2023', "Actualidad", 'Estudios y proyectos en programacion.');
 
 INSERT INTO skills (name, level) VALUES
