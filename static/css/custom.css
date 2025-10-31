@@ -46,3 +46,13 @@
     .profile-img{ width: 140px; height:140px; }
   }
   
+  /* barras de progreso para skills */
+  .progress {
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    transition: width 1s ease;
+  }

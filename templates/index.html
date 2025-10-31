@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="row align-items-center">
+
+<!-- acerca de mi -->
+<div class="row align-items-center mb-5">
   <div class="col-md-4 text-center">
     <img src="{{ url_for('static', filename='uploads/profile.jpg') }}" alt="perfil" class="img-fluid rounded-circle profile-img">
   </div>
@@ -18,14 +20,21 @@
 
 <hr class="my-4">
 
-<h3>Experiencia</h3>
+<!-- experiencia (vacía por ahora) -->
+<h3 class="mb-3">Experiencia</h3>
+<p class="text">Proximamente se agregara experiencia laboral y profesional.</p>
+<hr class="my-4">
+
+<!-- educacion -->
+<h3 class="mb-3">Educacion</h3>
 <div class="row">
-  {% for e in experiences %}
+  {% for e in education %}
   <div class="col-md-6 mb-3">
     <div class="card bg-secondary text-light h-100">
       <div class="card-body">
-        <h5 class="card-title">{{ e.role }} - {{ e.company }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ e.start_date }} - {{ e.end_date or 'Actualidad' }}</h6>
+        <h5 class="card-title">{{ e.institution }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ e.degree }}</h6>
+        <p class="card-text small">{{ e.start_year }} - {{ e.end_year }}</p>
         <p class="card-text">{{ e.description }}</p>
       </div>
     </div>
@@ -35,10 +44,49 @@
 
 <hr class="my-4">
 
-<h3>Habilidades</h3>
-<div class="d-flex flex-wrap gap-2">
+<!-- hard & soft skills -->
+<h3 class="mb-3">Hard & Soft Skills</h3>
+<div class="row">
   {% for s in skills %}
-    <span class="badge bg-dark skill-badge" style="transform: scale({{ 0.8 + s.level/6 }});">{{ s.name }}</span>
+  <div class="col-md-6 mb-3">
+    <div class="bg-dark rounded p-3">
+      <div class="d-flex justify-content-between">
+        <span>{{ s.name }}</span>
+        <span>{{ s.level }}%</span>
+      </div>
+      <div class="progress mt-1" style="height:8px;">
+        <div class="progress-bar bg-light" role="progressbar" style="width: {{ s.level }}%;"></div>
+      </div>
+    </div>
+  </div>
   {% endfor %}
 </div>
+
+<hr class="my-4">
+
+<!-- proyectos -->
+<h3 class="mb-3">Proyectos</h3>
+<div class="row">
+  <!-- proyecto 1 -->
+  <div class="col-md-6 mb-3">
+    <div class="card bg-secondary text-light h-100">
+      <div class="card-body">
+        <h5 class="card-title">Portfolio Web (Proyecto Integrador)</h5>
+        <p class="card-text">Aplicación web full stack con Flask, MySQL y Bootstrap. Incluye login, panel de edición y diseño adaptable.</p>
+        <a href="https://github.com/mateo-ulla/Proyecto-Integrador-Portfolio" class="btn btn-outline-light btn-sm" target="_blank">Ver en github</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- proyecto 2 -->
+  <div class="col-md-6 mb-3">
+    <div class="card bg-secondary text-light h-100">
+      <div class="card-body">
+        <h5 class="card-title">Prodetailing - Fundador</h5>
+        <p class="card-text">Emprendimiento personal de detailing automotriz. Gestión de clientes, marketing digital y operaciones. Uso de WhatsApp Business, Facebook Ads, y redes sociales (Instagram, Facebook y Tiktok).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}

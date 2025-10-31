@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS admin (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- tabla personal 
+-- tabla personal
 CREATE TABLE IF NOT EXISTS personal (
   id INT PRIMARY KEY,
   name VARCHAR(200),
@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS personal (
   github VARCHAR(255)
 );
 
--- tabla experience
+-- tabla experience (por ahora vacia, lista para futuras experiencias)
 CREATE TABLE IF NOT EXISTS experience (
   id INT AUTO_INCREMENT PRIMARY KEY,
   company VARCHAR(200),
@@ -33,26 +33,51 @@ CREATE TABLE IF NOT EXISTS experience (
   description TEXT
 );
 
--- tabla skills
+-- tabla education 
+CREATE TABLE IF NOT EXISTS education (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  institution VARCHAR(200),
+  degree VARCHAR(200),
+  start_year VARCHAR(10),
+  end_year VARCHAR(10),
+  description TEXT
+);
+
+-- tabla skills (niveles expresados en porcentajes)
 CREATE TABLE IF NOT EXISTS skills (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(100),
-  level INT DEFAULT 1
+  level INT DEFAULT 0
 );
 
--- seed inicial
+-- seed inicial: datos personales
 INSERT INTO personal (id, name, title, phone, email, about, linkedin, github)
-VALUES (1, 'Mateo Ulla', 'Estudiante - Programacion y AI', '(351) 810-4498', 'mateoullaa@gmail.com',
-' Estudiante de Programacion con orientacion en Inteligencia Artificial y Finanzas. Fundador de emprendimiento de detailing. En busca de oportunidades.', 
-'https://ar.linkedin.com/in/mateo-ulla-08857636b', 'https://github.com/mateo-ulla');
+VALUES (
+  1,
+  'Mateo Ulla',
+  'Estudiante - Programacion y AI',
+  '(351) 810-4498',
+  'mateoullaa@gmail.com',
+  'Estudiante de programacion con orientacion en inteligencia artificial y finanzas. Fundador de emprendimiento de detailing. En busca de oportunidades y crecimiento profesional.',
+  'https://ar.linkedin.com/in/mateo-ulla-08857636b',
+  'https://github.com/mateo-ulla'
+);
 
--- datos de ejemplo
-INSERT INTO experience (company, role, start_date, end_date, description) VALUES
-('Prodetailing', 'Fundador', '2020', '2023', 'Creacion y gestion de emprendimiento de detailing automotriz. Marketing digital y atencion al cliente.'),
-('Instituto Tecnico Renault', 'Estudios', '2023', "Actualidad", 'Estudios y proyectos en programacion.');
+-- seed de educacion
+INSERT INTO education (institution, degree, start_year, end_year, description) VALUES
+('Instituto Tecnico Renault', 'Tecnico en Programacion', '2019', '2025', 'Formacion tecnica con orientacion en programacion, bases de datos y sistemas.'),
+('IICANA', 'Certificacion de Ingles ECCE - Nivel B2', '2016', '2025', 'Certificacion internacional de ingles intermedio alto (nivel B2).');
 
+-- no insertamos experiencia (queda vacia para completar en el futuro)
+
+-- seed de habilidades (hard & soft skills + idiomas)
 INSERT INTO skills (name, level) VALUES
-('Python', 5),
-('SQL', 4),
-('Flask', 4),
-('Javascript', 3);
+('Python', 90),
+('Flask', 80),
+('MySQL', 80),
+('HTML/CSS', 75),
+('JavaScript', 70),
+('Ingles (Nivel B2 - ECCE)', 90),
+('Espanol (Nativo)', 100),
+('Trabajo en equipo', 90),
+('Comunicacion', 95);

@@ -61,3 +61,7 @@ class SkillsModel(BaseModel):
         with conn.cursor() as cur:
             cur.execute("select * from skills order by level desc")
             return cur.fetchall()
+        
+class EducationModel(BaseModel):
+    def __init__(self):
+        super().__init__('education')

@@ -3,7 +3,7 @@
 from flask import Flask, render_template, redirect, url_for, request, session, send_from_directory, flash
 from config import Config
 from forms import LoginForm, PersonalForm
-from models import PersonalModel, ExperienceModel, SkillsModel
+from models import PersonalModel, ExperienceModel, SkillsModel, EducationModel
 from werkzeug.security import check_password_hash
 from db import get_connection
 import os
@@ -15,14 +15,16 @@ app.config.from_object(Config)
 personal_model = PersonalModel()
 experience_model = ExperienceModel()
 skills_model = SkillsModel()
+education_model = EducationModel()
 
 # ruta principal (publica)
 @app.route('/')
 def index():
     personal = personal_model.find(1)
     experiences = experience_model.all()
+    education = education_model.all()
     skills = skills_model.all()
-    return render_template('index.html', personal=personal, experiences=experiences, skills=skills)
+    return render_template('index.html', personal=personal, experiences=experiences, education=education, skills=skills)
 
 # ruta para descargar cv (archivo pdf en static/uploads)
 @app.route('/download/cv')
