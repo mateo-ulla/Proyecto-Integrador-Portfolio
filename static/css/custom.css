@@ -46,13 +46,56 @@
     .profile-img{ width: 140px; height:140px; }
   }
   
-  /* barras de progreso para skills */
-  .progress {
-    background-color: rgba(255,255,255,0.1);
-    border-radius: 5px;
-    overflow: hidden;
+/* barras de progreso: inicio 0 y transicion */
+.progress {
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  height: 8px;
+}
+
+.progress-bar {
+  width: 0% !important; /* forzar inicio en 0 aunque haya estilos previos */
+  background-color: #e6e6e6;
+  transition: width 1.2s cubic-bezier(.2,.8,.2,1); /* animacion suave */
+}
+
+/* clase que indica que la barra debe llenarse hasta --target-width */
+.progress-bar.fill {
+  width: var(--target-width) !important;
+}
+
+  footer {
+    color: #aaa;
+    font-size: 0.9rem;
   }
 
-  .progress-bar {
-    transition: width 1s ease;
+  footer a:hover {
+    text-decoration: underline;
+    color: #fff;
+  }
+
+    /* navbar */
+  .navbar {
+    background-color: #0d0d0d !important;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .navbar-brand {
+    letter-spacing: 1px;
+  }
+
+  .navbar-nav .nav-link {
+    color: #ccc !important;
+    margin-left: 0.5rem;
+    transition: color 0.3s ease;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #fff !important;
+  }
+
+  .navbar.fixed-top.scrolled {
+    background-color: #000 !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.6);
   }

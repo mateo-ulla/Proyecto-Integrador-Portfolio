@@ -20,9 +20,23 @@
 
 <hr class="my-4">
 
-<!-- experiencia (vacía por ahora) -->
+<!-- experiencia (vacia por ahora) -->
 <h3 class="mb-3">Experiencia</h3>
-<p class="text">Proximamente se agregara experiencia laboral y profesional.</p>
+<div class="row">
+  {% for e in education %}
+  <div class="col-md-6 mb-3">
+    <div class="card bg-secondary text-light h-100">
+      <div class="card-body">
+        <h5 class="card-title">Titulo</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Subtitulo</h6>
+        <p class="card-text small">0000 - 0000 (Años)</p>
+        <p class="card-text">Descripción</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
 <hr class="my-4">
 
 <!-- educacion -->
@@ -55,38 +69,107 @@
         <span>{{ s.level }}%</span>
       </div>
       <div class="progress mt-1" style="height:8px;">
-        <div class="progress-bar bg-light" role="progressbar" style="width: {{ s.level }}%;"></div>
+        <div class="progress-bar" role="progressbar" style="width:0%" data-target="{{ s.level }}"></div>
       </div>
     </div>
   </div>
   {% endfor %}
 </div>
 
+
 <hr class="my-4">
 
 <!-- proyectos -->
 <h3 class="mb-3">Proyectos</h3>
-<div class="row">
+<div class="row g-3">
+
   <!-- proyecto 1 -->
-  <div class="col-md-6 mb-3">
+  <div class="col-md-6">
     <div class="card bg-secondary text-light h-100">
+      <img src="{{ url_for('static', filename='uploads/portfolio_web.jpg') }}" class="card-img-top" alt="Portfolio Web">
       <div class="card-body">
         <h5 class="card-title">Portfolio Web (Proyecto Integrador)</h5>
-        <p class="card-text">Aplicación web full stack con Flask, MySQL y Bootstrap. Incluye login, panel de edición y diseño adaptable.</p>
-        <a href="https://github.com/mateo-ulla/Proyecto-Integrador-Portfolio" class="btn btn-outline-light btn-sm" target="_blank">Ver en github</a>
+        <p class="card-text">
+          Aplicación web full stack con Flask, MySQL y Bootstrap. Incluye login, panel de edición y diseño adaptable.
+        </p>
+        <a href="https://github.com/mateo-ulla/Proyecto-Integrador-Portfolio" class="btn btn-outline-light btn-sm" target="_blank">Ver en GitHub</a>
       </div>
     </div>
   </div>
 
   <!-- proyecto 2 -->
-  <div class="col-md-6 mb-3">
+  <div class="col-md-6">
     <div class="card bg-secondary text-light h-100">
+      <img src="{{ url_for('static', filename='uploads/prodetailing.jpg') }}" class="card-img-top" alt="Prodetailing">
       <div class="card-body">
         <h5 class="card-title">Prodetailing - Fundador</h5>
-        <p class="card-text">Emprendimiento personal de detailing automotriz. Gestión de clientes, marketing digital y operaciones. Uso de WhatsApp Business, Facebook Ads, y redes sociales (Instagram, Facebook y Tiktok).</p>
+        <p class="card-text">
+          Emprendimiento personal de detailing automotriz. Gestión de clientes, marketing digital y operaciones.
+          Uso de WhatsApp Business, Facebook Ads y redes sociales (Instagram, Facebook y TikTok).
+        </p>
       </div>
     </div>
   </div>
+
+  <!-- proyecto 3 -->
+  <div class="col-md-6">
+    <div class="card bg-secondary text-light h-100">
+      <img src="{{ url_for('static', filename='uploads/taller_mecanico.jpg') }}" class="card-img-top" alt="Taller Mecanico">
+      <div class="card-body">
+        <h5 class="card-title">Taller Mecánico (con Django)</h5>
+        <p class="card-text">
+          Proyecto desarrollado para un taller mecánico. Basado en el sistema previo hecho con Flet, este proyecto traslada la lógica
+          a un sitio web con HTML, CSS, Bootstrap y Django Templates.
+        </p>
+        <a href="https://github.com/mateo-ulla/Taller-Mecanico-Django-V2" class="btn btn-outline-light btn-sm" target="_blank">Ver en GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- proyecto 4 -->
+  <div class="col-md-6">
+    <div class="card bg-secondary text-light h-100">
+      <img src="{{ url_for('static', filename='uploads/aula_virtual.jpg') }}" class="card-img-top" alt="Aula Virtual">
+      <div class="card-body">
+        <h5 class="card-title">Aula Virtual (con Flask)</h5>
+        <p class="card-text">
+          Aula Virtual es una aplicación web desarrollada con Python y Flask que permite la gestión de cursos, materiales, evaluaciones
+          y usuarios en un entorno educativo digital. Utiliza MySQL como base de datos y Bootstrap para la interfaz.
+        </p>
+        <a href="https://github.com/mateo-ulla/Aula-Virtual" class="btn btn-outline-light btn-sm" target="_blank">Ver en GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- proyecto 5 -->
+  <div class="col-md-6">
+    <div class="card bg-secondary text-light h-100">
+      <img src="{{ url_for('static', filename='uploads/app_cobro.jpg') }}" class="card-img-top" alt="App de Cobro">
+      <div class="card-body">
+        <h5 class="card-title">Simulador de Cobro (API de Mercado Pago)</h5>
+        <p class="card-text">
+          App en Flask para simular compras y cobros con diferentes métodos de pago: tarjeta simulada y Mercado Pago (Checkout Pro).
+        </p>
+        <a href="https://github.com/mateo-ulla/App-de-cobro" class="btn btn-outline-light btn-sm" target="_blank">Ver en GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- proyecto 6 -->
+  <div class="col-md-6">
+    <div class="card bg-secondary text-light h-100">
+      <img src="{{ url_for('static', filename='uploads/copa_renault.jpg') }}" class="card-img-top" alt="Copa Renault App">
+      <div class="card-body">
+        <h5 class="card-title">Copa Renault App</h5>
+        <p class="card-text">
+          Aplicación web para la gestión de la Copa Renault, desarrollada con Flask y Bootstrap. Permite la administración de usuarios,
+          equipos, fixtures, reservas de cantina y sponsors, con una interfaz moderna, responsiva y segura.
+        </p>
+        <a href="https://github.com/mateo-ulla/App-Copa-Renault" class="btn btn-outline-light btn-sm" target="_blank">Ver en GitHub</a>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 {% endblock %}

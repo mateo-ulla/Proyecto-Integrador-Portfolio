@@ -1,19 +1,33 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{{ url_for('index') }}">Portfolio</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navmenu">
-        <ul class="navbar-nav ms-auto">
-          {% if session.get('admin') %}
-            <li class="nav-item"><a class="nav-link" href="{{ url_for('admin_edit') }}">Editar</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Salir</a></li>
-          {% else %}
-            <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Iniciar Sesion</a></li>
-          {% endif %}
-        </ul>
-      </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
+  <div class="container-fluid px-4">
+    <!-- nombre / logo -->
+    <a class="navbar-brand fw-bold text-uppercase" href="{{ url_for('index') }}">
+      <span class="text-light">Portfolio</span>
+    </a>
+
+    <!-- boton hamburguesa -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- links -->
+    <div class="collapse navbar-collapse justify-content-end" id="navmenu">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#about">Acerca de mí</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education">Educación</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Proyectos</a></li>
+
+        {% if session.get('admin') %}
+          <li class="nav-item"><a class="nav-link text-warning" href="{{ url_for('admin_edit') }}">Editar</a></li>
+          <li class="nav-item"><a class="nav-link text-danger" href="{{ url_for('logout') }}">Salir</a></li>
+        {% else %}
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Iniciar Sesión</a></li>
+        {% endif %}
+      </ul>
     </div>
-  </nav>
-  
+  </div>
+</nav>
+
+<!-- separador para compensar el navbar fijo -->
+<div style="height:70px;"></div>
