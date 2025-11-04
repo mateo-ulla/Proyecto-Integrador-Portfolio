@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     val = Math.max(0, Math.min(100, val));
     // aplicar la variable css y la clase que la usa
     bar.style.setProperty('--target-width', val + '%');
-    // un pequeño delay por estetica: escalonar la animacion si se desea
+    // un pequeño delay
     setTimeout(function(){ bar.classList.add('fill'); }, 50);
   }
 
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     bars.forEach(function(b){ observer.observe(b); });
 
-    // fallback: si despues de 3s todavia no se animaron (por algun motivo), animar todas
+    // si despues de 3s todavia no se animaron, animar todas
     setTimeout(function(){
       bars.forEach(function(b){
         if (!b.classList.contains('fill')) animateBar(b);

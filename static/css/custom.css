@@ -4,7 +4,7 @@
     --bg:#0b0b0b;
     --card:#1b1b1b;
     --muted:#9aa0a6;
-    --accent:#cfc7b8; /* beige */
+    --accent:#cfc7b8; 
   }
   
   body{
@@ -60,7 +60,6 @@
   transition: width 1.2s cubic-bezier(.2,.8,.2,1); /* animacion suave */
 }
 
-/* clase que indica que la barra debe llenarse hasta --target-width */
 .progress-bar.fill {
   width: var(--target-width) !important;
 }
@@ -75,7 +74,6 @@
     color: #fff;
   }
 
-    /* navbar */
   .navbar {
     background-color: #0d0d0d !important;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;

@@ -17,7 +17,7 @@ experience_model = ExperienceModel()
 skills_model = SkillsModel()
 education_model = EducationModel()
 
-# ruta principal (publica)
+# ruta principal 
 @app.route('/')
 def index():
     personal = personal_model.find(1)
@@ -51,7 +51,7 @@ def login():
             flash('Credenciales invalidas', 'danger')
     return render_template('login.html', form=form)
 
-# decorador simple para proteger admin (no usar en produccion sin mejoras)
+# decorador simple para proteger admin 
 def admin_required(f):
     from functools import wraps
     @wraps(f)

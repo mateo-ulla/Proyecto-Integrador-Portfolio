@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS personal (
   github VARCHAR(255)
 );
 
--- tabla experience (por ahora vacia, lista para futuras experiencias)
+-- tabla experience (por ahora vacia)
 CREATE TABLE IF NOT EXISTS experience (
   id INT AUTO_INCREMENT PRIMARY KEY,
   company VARCHAR(200),
@@ -67,8 +67,6 @@ VALUES (
 INSERT INTO education (institution, degree, start_year, end_year, description) VALUES
 ('Instituto Tecnico Renault', 'Tecnico en Programacion', '2019', '2025', 'Formacion tecnica con orientacion en programacion, bases de datos y sistemas.'),
 ('IICANA', 'Certificacion de Ingles ECCE - Nivel B2', '2016', '2025', 'Certificacion internacional de ingles intermedio alto (nivel B2).');
-
--- no insertamos experiencia (queda vacia para completar en el futuro)
 
 -- seed de habilidades (hard & soft skills + idiomas)
 INSERT INTO skills (name, level) VALUES
