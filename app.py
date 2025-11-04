@@ -32,6 +32,37 @@ def download_cv():
     uploads = os.path.join(app.root_path, 'static', 'uploads')
     return send_from_directory(uploads, 'CV MATEO ULLA.pdf', as_attachment=True)
 
+@app.route('/material')
+def material():
+    # lista de libros estaticos 
+    books = [
+        {
+            'title': 'Atomic Habits',
+            'description': 'Guía práctica sobre cómo crear buenos hábitos y eliminar los malos. Ideal para productividad y crecimiento personal.',
+            'filename': 'atomic_habits.pdf',
+            'image': 'atomic_habits.jpg'
+        },
+        {
+            'title': 'Padre Rico, Padre Pobre',
+            'description': 'Libro clásico sobre educación financiera, activos, pasivos y mentalidad de abundancia.',
+            'filename': 'padre_rico_padre_pobre.pdf',
+            'image': 'padre_rico_padre_pobre.jpg'
+        },
+        {
+            'title': 'El Patrón Bitcoin',
+            'description': 'Analiza el contexto histórico del surgimiento de esta nueva moneda, las propiedades económicas que la han permitido crecer rápidamente y sus implicaciones económicas, políticas y sociales.',
+            'filename': 'el_patron_bitcoin.pdf',
+            'image': 'el_patron_bitcoin.jpg'
+        }
+    ]
+    return render_template('material.html', books=books)
+
+# ruta para descargar libros
+@app.route('/download/book/<filename>')
+def download_book(filename):
+    uploads = os.path.join(app.root_path, 'static', 'uploads')
+    return send_from_directory(uploads, filename, as_attachment=True)
+
 # login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
