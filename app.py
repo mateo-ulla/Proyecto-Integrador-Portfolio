@@ -26,7 +26,7 @@ def index():
     skills = skills_model.all()
     return render_template('index.html', personal=personal, experiences=experiences, education=education, skills=skills)
 
-# ruta para descargar cv (archivo pdf en static/uploads)
+# ruta para descargar cv 
 @app.route('/download/cv')
 def download_cv():
     uploads = os.path.join(app.root_path, 'static', 'uploads')

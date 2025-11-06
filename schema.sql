@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS skills (
   level INT DEFAULT 0
 );
 
--- seed inicial: datos personales
+-- seed de datos personales
 INSERT INTO personal (id, name, title, phone, email, about, linkedin, github)
 VALUES (
   1,

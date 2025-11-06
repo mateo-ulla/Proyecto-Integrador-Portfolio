@@ -2,7 +2,7 @@
 {% block content %}
 
 <!-- acerca de mi -->
-<div class="row align-items-center mb-5">
+<div id="acerca" class="row align-items-center mb-5">
   <div class="col-md-4 text-center">
     <img src="{{ url_for('static', filename='uploads/profile.jpg') }}" alt="perfil" class="img-fluid rounded-circle profile-img">
   </div>
@@ -21,7 +21,7 @@
 <hr class="my-4">
 
 <!-- experiencia (vacia por ahora) -->
-<h3 class="mb-3">Experiencia</h3>
+<h3 id="experiencia" class="mb-3">Experiencia</h3>
 <div class="row">
   {% for e in education %}
   <div class="col-md-6 mb-3">
@@ -40,7 +40,7 @@
 <hr class="my-4">
 
 <!-- educacion -->
-<h3 class="mb-3">Educacion</h3>
+<h3 id="educacion" class="mb-3">Educacion</h3>
 <div class="row">
   {% for e in education %}
   <div class="col-md-6 mb-3">
@@ -59,7 +59,7 @@
 <hr class="my-4">
 
 <!-- hard & soft skills -->
-<h3 class="mb-3">Hard & Soft Skills</h3>
+<h3 id="skills" class="mb-3">Hard & Soft Skills</h3>
 <div class="row">
   {% for s in skills %}
   <div class="col-md-6 mb-3">
@@ -80,13 +80,13 @@
 <hr class="my-4">
 
 <!-- proyectos -->
-<h3 class="mb-3">Proyectos</h3>
+<h3 id="proyectos" class="mb-3">Proyectos</h3>
 <div class="row g-3">
 
   <!-- proyecto 1 -->
   <div class="col-md-6">
     <div class="card bg-secondary text-light h-100">
-      <img src="{{ url_for('static', filename='uploads/portfolio_web.jpg') }}" class="card-img-top" alt="Portfolio Web">
+      <img src="{{ url_for('static', filename='uploads/portfolio_web.jpg') }}" class="project-img" alt="Portfolio Web">
       <div class="card-body">
         <h5 class="card-title">Portfolio Web (Proyecto Integrador)</h5>
         <p class="card-text">
@@ -100,7 +100,7 @@
   <!-- proyecto 2 -->
   <div class="col-md-6">
     <div class="card bg-secondary text-light h-100">
-      <img src="{{ url_for('static', filename='uploads/prodetailing.jpg') }}" class="card-img-top" alt="Prodetailing">
+      <img src="{{ url_for('static', filename='uploads/prodetailing.jpg') }}" class="project-img" alt="Prodetailing">
       <div class="card-body">
         <h5 class="card-title">Prodetailing - Fundador</h5>
         <p class="card-text">
@@ -114,7 +114,7 @@
   <!-- proyecto 3 -->
   <div class="col-md-6">
     <div class="card bg-secondary text-light h-100">
-      <img src="{{ url_for('static', filename='uploads/taller_mecanico.jpg') }}" class="card-img-top" alt="Taller Mecanico">
+      <img src="{{ url_for('static', filename='uploads/taller_mecanico.jpg') }}" class="project-img" alt="Taller Mecanico">
       <div class="card-body">
         <h5 class="card-title">Taller Mecánico (con Django)</h5>
         <p class="card-text">
@@ -129,7 +129,7 @@
   <!-- proyecto 4 -->
   <div class="col-md-6">
     <div class="card bg-secondary text-light h-100">
-      <img src="{{ url_for('static', filename='uploads/aula_virtual.jpg') }}" class="card-img-top" alt="Aula Virtual">
+      <img src="{{ url_for('static', filename='uploads/aula_virtual.jpg') }}" class="project-img" alt="Aula Virtual">
       <div class="card-body">
         <h5 class="card-title">Aula Virtual (con Flask)</h5>
         <p class="card-text">
@@ -144,7 +144,7 @@
   <!-- proyecto 5 -->
   <div class="col-md-6">
     <div class="card bg-secondary text-light h-100">
-      <img src="{{ url_for('static', filename='uploads/app_cobro.jpg') }}" class="card-img-top" alt="App de Cobro">
+      <img src="{{ url_for('static', filename='uploads/app_cobro.jpg') }}" class="project-img" alt="App de Cobro">
       <div class="card-body">
         <h5 class="card-title">Simulador de Cobro (API de Mercado Pago)</h5>
         <p class="card-text">
@@ -158,7 +158,7 @@
   <!-- proyecto 6 -->
   <div class="col-md-6">
     <div class="card bg-secondary text-light h-100">
-      <img src="{{ url_for('static', filename='uploads/copa_renault.jpg') }}" class="card-img-top" alt="Copa Renault App">
+      <img src="{{ url_for('static', filename='uploads/copa_renault.jpg') }}" class="project-img" alt="Copa Renault App">
       <div class="card-body">
         <h5 class="card-title">Copa Renault App</h5>
         <p class="card-text">
