@@ -58,7 +58,17 @@ VALUES (
   'Estudiante - Programacion y AI',
   '(351) 810-4498',
   'mateoullaa@gmail.com',
-  'Estudiante de programacion con orientacion en inteligencia artificial y finanzas. Fundador de emprendimiento de detailing. En busca de oportunidades y crecimiento profesional.',
+  'Estudiante de Programacion con
+orientacion en Inteligencia Artificial y
+Finanzas, apasionado por los negocios y
+los emprendimientos.
+Experiencia como fundador de un servicio
+de detailing automotriz. Ingles nivel B2
+certificado (ECCE).
+Busco crecer en el sector tecnologico y
+financiero aportando mis habilidades en
+programacion, analisis y liderazgo.
+',
   'https://ar.linkedin.com/in/mateo-ulla-08857636b',
   'https://github.com/mateo-ulla'
 );
