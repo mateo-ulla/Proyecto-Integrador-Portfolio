@@ -134,3 +134,13 @@
     scroll-margin-top: 70px; /* ajusta segun altura de navbar */
   }
   
+  .card .btn-outline-light,
+  .card .btn-outline-danger {
+  padding: 2px 6px;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+  .position-absolute {
+  z-index: 10;
+}

@@ -73,6 +73,11 @@ programacion, analisis y liderazgo.
   'https://github.com/mateo-ulla'
 );
 
+-- seed de experience (vacío por ahora)
+INSERT INTO experience (company, role, start_date, end_date, description) VALUES
+('Titulo', 'Subtitulo', '0000', '0000', 'Descripcion'),
+('Titulo', 'Subtitulo', '0000', '0000', 'Descripcion');
+
 -- seed de educacion
 INSERT INTO education (institution, degree, start_year, end_year, description) VALUES
 ('Instituto Tecnico Renault', 'Tecnico en Programacion', '2019', '2025', 'Formacion tecnica con orientacion en programacion, bases de datos y sistemas.'),
