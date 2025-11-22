@@ -4,4 +4,5 @@
 set -e
 
 echo "iniciando gunicorn en render..."
-gunicorn app:app --workers 3 --bind 0.0.0.0:$PORT
+gunicorn app:app --workers 1 --threads 5
+
