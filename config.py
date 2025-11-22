@@ -1,10 +1,10 @@
 import os
 
 class Config:
-    SECRET_KEY = os.getenv('SECRET_KEY', 'mi_clave_secreta')
+    SECRET_KEY = os.getenv('SECRET_KEY', 'clave_dev')
 
-    DB_HOST = os.getenv('MYSQL_ADDON_HOST')
-    DB_USER = os.getenv('MYSQL_ADDON_USER')
-    DB_PASSWORD = os.getenv('MYSQL_ADDON_PASSWORD')
-    DB_NAME = os.getenv('MYSQL_ADDON_DB')
-    DB_PORT = int(os.getenv('MYSQL_ADDON_PORT', 3306))
+    DB_HOST = os.getenv('DB_HOST')
+    DB_USER = os.getenv('DB_USER')
+    DB_PASSWORD = os.getenv('DB_PASSWORD')
+    DB_NAME = os.getenv('DB_NAME')
+    DB_PORT = int(os.getenv('DB_PORT', 3306))
