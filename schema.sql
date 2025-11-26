@@ -62,13 +62,13 @@ orientacion en Inteligencia Artificial y
 Finanzas, apasionado por los negocios y
 los emprendimientos.
 Experiencia como fundador de un servicio
-de detailing automotriz. Ingles nivel B2
-certificado (ECCE).
-Busco crecer en el sector tecnologico y
-financiero aportando mis habilidades en
-programacion, analisis y liderazgo.
+de detailing automotriz.
+Orientado al crecimiento en el ámbito
+tecnológico y financiero, aplicando
+habilidades en programación, análisis y
+liderazgo.
 ',
-  'https://ar.linkedin.com/in/mateo-ulla-08857636b',
+  'https://www.linkedin.com/in/mateoulla/',
   'https://github.com/mateo-ulla'
 );
 
@@ -85,11 +85,14 @@ INSERT INTO education (institution, degree, start_year, end_year, description) V
 -- seed de habilidades (hard & soft skills + idiomas)
 INSERT INTO skills (name, level) VALUES
 ('Python', 90),
-('Flask', 80),
-('MySQL', 80),
-('HTML/CSS', 75),
-('JavaScript', 70),
+('Flask', 85),
+('MySQL', 85),
+('HTML/CSS', 80),
+('JavaScript', 80),
 ('Ingles (Nivel B2 - ECCE)', 90),
 ('Espanol (Nativo)', 100),
 ('Trabajo en equipo', 90),
-('Comunicacion', 95);
+('Liderazgo', 95),
+('Resolucion de problemas', 100),
+('Pensamiento critico', 90),
+('Comunicacion', 90);
