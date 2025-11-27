@@ -1,5 +1,9 @@
 -- schema.sql
 
+CREATE DATABASE IF NOT EXISTS b1pqkad90ffurwescyys
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
 USE b1pqkad90ffurwescyys;
 
 -- tabla admin
@@ -63,18 +67,18 @@ INSERT INTO personal (id, name, title, phone, email, about, linkedin, github)
 VALUES (
   1,
   'Mateo Ulla',
-  'Estudiante - Programacion y AI',
+  'Estudiante - Programación y AI',
   '(351) 810-4498',
   'mateoullaa@gmail.com',
-  'Estudiante de Programacion con
-orientacion en Inteligencia Artificial y
+  'Estudiante de Programación con
+orientación en Inteligencia Artificial y
 Finanzas, apasionado por los negocios y
 los emprendimientos.
 Experiencia como fundador de un servicio
 de detailing automotriz.
 Orientado al crecimiento en el ambito
-tecnologico y financiero, aplicando
-habilidades en programacion, analisis y
+tecnológico y financiero, aplicando
+habilidades en programación, análisis y
 liderazgo.
 ',
   'https://www.linkedin.com/in/mateoulla/',
@@ -83,13 +87,13 @@ liderazgo.
 
 -- seed experience 
 INSERT INTO experience (company, role, start_date, end_date, description) VALUES
-('Titulo', 'Subtitulo', '0000', '0000', 'Descripcion'),
-('Titulo', 'Subtitulo', '0000', '0000', 'Descripcion');
+('Título', 'Subtítulo', '0000', '0000', 'Descripción'),
+('Título', 'Subtítulo', '0000', '0000', 'Descripción');
 
 -- seed de educacion
 INSERT INTO education (institution, degree, start_year, end_year, description) VALUES
-('Instituto Tecnico Renault', 'Tecnico en Programacion', '2019', '2025', 'Formacion tecnica con orientacion en programacion, bases de datos y sistemas.'),
-('IICANA', 'Certificacion de Ingles ECCE - Nivel B2', '2016', '2025', 'Certificacion internacional de ingles intermedio alto (nivel B2).');
+('Instituto Técnico Renault', 'Técnico en Programación', '2019', '2025', 'Formacion técnica con orientación en programación, bases de datos y sistemas.'),
+('IICANA', 'Certificación de Inglés ECCE - Nivel B2', '2016', '2025', 'Certificación internacional de inglés intermedio alto (nivel B2).');
 
 -- seed skills
 INSERT INTO skills (name, level) VALUES
@@ -98,13 +102,13 @@ INSERT INTO skills (name, level) VALUES
 ('MySQL', 85),
 ('HTML/CSS', 80),
 ('JavaScript', 80),
-('Espanol (Nativo)', 100),
-('Ingles (Nivel B2 - ECCE)', 90),
+('Español (Nativo)', 100),
+('Inglés (Nivel B2 - ECCE)', 90),
 ('Trabajo en equipo', 90),
 ('Liderazgo', 95),
-('Resolucion de problemas', 100),
-('Pensamiento critico', 90),
-('Comunicacion', 90);
+('Resolución de problemas', 100),
+('Pensamiento crítico', 90),
+('Comunicación', 90);
 
 -- seed projects
 INSERT INTO projects (title, description, github, image) VALUES

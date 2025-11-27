@@ -10,6 +10,7 @@ def get_connection():
         password=Config.DB_PASSWORD,
         database=Config.DB_NAME,
         port=Config.DB_PORT,
+        charset='utf8mb4',
         cursorclass=pymysql.cursors.DictCursor,
         autocommit=True
     )
