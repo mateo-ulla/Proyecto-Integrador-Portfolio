@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request, session, send_from_directory, flash
 from config import Config
 from forms import LoginForm, PersonalForm
-from models import PersonalModel, ExperienceModel, SkillsModel, EducationModel
+from models import PersonalModel, ExperienceModel, SkillsModel, EducationModel, ProjectsModel
 from werkzeug.security import check_password_hash
 from db import get_connection 
 import pymysql  
@@ -16,6 +16,7 @@ personal_model = PersonalModel()
 experience_model = ExperienceModel()
 skills_model = SkillsModel()
 education_model = EducationModel()
+projects_model = ProjectsModel()
 
 # RUTAS PRINCIPALES
 
@@ -25,7 +26,9 @@ def index():
     experiences = experience_model.all()
     education = education_model.all()
     skills = skills_model.all()
-    return render_template('index.html', personal=personal, experiences=experiences, education=education, skills=skills)
+    projects = projects_model.all()
+
+    return render_template('index.html', personal=personal, experiences=experiences, education=education, skills=skills, projects=projects)
 
 # descargar CV
 @app.route('/download/cv')
