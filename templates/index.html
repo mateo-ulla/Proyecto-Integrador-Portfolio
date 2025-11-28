@@ -11,9 +11,9 @@
     <h4 class="text-light">{{ personal.title }}</h4>
     <p class="lead">{{ personal.about }}</p>
     <p>
-      <a href="{{ personal.linkedin }}" target="_blank">Linkedin</a> |
-      <a href="{{ personal.github }}" target="_blank">GitHub</a> |
-      <a href="{{ url_for('download_cv') }}">Descargar CV</a>
+      <a href="{{ personal.linkedin }}" target="_blank" class="btn btn-dark">Linkedin</a> |
+      <a href="{{ personal.github }}" target="_blank" class="btn btn-dark">GitHub</a> |
+      <a href="{{ url_for('download_cv') }}" class="btn btn-dark">Descargar CV</a>
     </p>
   </div>
 </div>

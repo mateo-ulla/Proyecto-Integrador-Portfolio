@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS personal (
   email VARCHAR(200),
   about TEXT,
   linkedin VARCHAR(255),
-  github VARCHAR(255),
+  github VARCHAR(255)
 );
 
 -- tabla experience 
@@ -111,7 +111,7 @@ INSERT INTO skills (name, level) VALUES
 ('Comunicación', 90);
 
 -- seed projects
-INSERT INTO projects (title, description, github, image) VALUES
+INSERT INTO projects (title, description, link, image) VALUES
 ('Portfolio Web (Proyecto Integrador)',
   'Aplicación web full stack con Flask, MySQL y Bootstrap. Incluye login, panel de edición y diseño adaptable.',
   'https://github.com/mateo-ulla/Proyecto-Integrador-Portfolio',
