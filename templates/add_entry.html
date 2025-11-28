@@ -9,61 +9,100 @@
     {% if tipo == 'experience' %}
       <div class="mb-3">
         <label class="form-label text-light">Empresa</label>
-        <input type="text" name="company" class="form-control bg-secondary text-light border-0" placeholder="Ejemplo: Prodetailing o Google" required>
+        <input type="text" name="company" class="form-control bg-secondary text-light border-0" required>
       </div>
 
       <div class="mb-3">
         <label class="form-label text-light">Cargo o Rol</label>
-        <input type="text" name="role" class="form-control bg-secondary text-light border-0" placeholder="Ejemplo: Fundador, Desarrollador Backend" required>
+        <input type="text" name="role" class="form-control bg-secondary text-light border-0" required>
       </div>
 
       <div class="row">
         <div class="col-md-6 mb-3">
           <label class="form-label text-light">Inicio</label>
-          <input type="text" name="start_date" class="form-control bg-secondary text-light border-0" placeholder="Ejemplo: 2022 o Marzo 2023" required>
+          <input type="text" name="start_date" class="form-control bg-secondary text-light border-0">
         </div>
+
         <div class="col-md-6 mb-3">
           <label class="form-label text-light">Fin</label>
-          <input type="text" name="end_date" class="form-control bg-secondary text-light border-0" placeholder="Ejemplo: Actualidad o 2024" required>
+          <input type="text" name="end_date" class="form-control bg-secondary text-light border-0">
         </div>
       </div>
 
       <div class="mb-3">
         <label class="form-label text-light">Descripción</label>
-        <textarea name="description" class="form-control bg-secondary text-light border-0" rows="4" placeholder="Describe brevemente tus responsabilidades y logros"></textarea>
+        <textarea name="description" rows="4" class="form-control bg-secondary text-light border-0"></textarea>
       </div>
+
+
     {% elif tipo == 'education' %}
       <div class="mb-3">
         <label class="form-label text-light">Institución</label>
-        <input type="text" name="institution" class="form-control bg-secondary text-light border-0" placeholder="Ejemplo: Instituto Técnico Renault" required>
+        <input type="text" name="institution" class="form-control bg-secondary text-light border-0" required>
       </div>
 
       <div class="mb-3">
-        <label class="form-label text-light">Título o Carrera</label>
-        <input type="text" name="degree" class="form-control bg-secondary text-light border-0" placeholder="Ejemplo: Técnico en Programación" required>
+        <label class="form-label text-light">Título</label>
+        <input type="text" name="degree" class="form-control bg-secondary text-light border-0" required>
       </div>
 
       <div class="row">
         <div class="col-md-6 mb-3">
-          <label class="form-label text-light">Año de inicio</label>
-          <input type="text" name="start_year" class="form-control bg-secondary text-light border-0" placeholder="Ejemplo: 2021" required>
+          <label class="form-label text-light">Inicio</label>
+          <input type="text" name="start_year" class="form-control bg-secondary text-light border-0">
         </div>
+
         <div class="col-md-6 mb-3">
-          <label class="form-label text-light">Año de finalización</label>
-          <input type="text" name="end_year" class="form-control bg-secondary text-light border-0" placeholder="Ejemplo: Actualidad o 2024" required>
+          <label class="form-label text-light">Fin</label>
+          <input type="text" name="end_year" class="form-control bg-secondary text-light border-0">
         </div>
       </div>
 
       <div class="mb-3">
         <label class="form-label text-light">Descripción</label>
-        <textarea name="description" class="form-control bg-secondary text-light border-0" rows="4" placeholder="Describe brevemente tus estudios o proyectos realizados"></textarea>
+        <textarea name="description" rows="4" class="form-control bg-secondary text-light border-0"></textarea>
+      </div>
+
+
+    {% elif tipo == 'skills' %}
+      <div class="mb-3">
+        <label class="form-label text-light">Skill</label>
+        <input type="text" name="name" class="form-control bg-secondary text-light border-0" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label text-light">Nivel (%)</label>
+        <input type="number" min="0" max="100" name="level" class="form-control bg-secondary text-light border-0" required>
+      </div>
+
+
+    {% elif tipo == 'projects' %}
+      <div class="mb-3">
+        <label class="form-label text-light">Título del Proyecto</label>
+        <input type="text" name="title" class="form-control bg-secondary text-light border-0" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label text-light">Descripción</label>
+        <textarea name="description" rows="4" class="form-control bg-secondary text-light border-0"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label text-light">URL de GitHub</label>
+        <input type="text" name="github" class="form-control bg-secondary text-light border-0">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label text-light">Nombre de imagen (archivo en /static/uploads)</label>
+        <input type="text" name="image" class="form-control bg-secondary text-light border-0">
       </div>
     {% endif %}
 
-    <div class="mt-4 text-center">
-      <button type="submit" class="btn btn-outline-success me-2">Guardar</button>
+    <div class="text-center mt-4">
+      <button class="btn btn-outline-success me-2">Guardar</button>
       <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">Cancelar</a>
     </div>
+
   </form>
 </div>
 

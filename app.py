@@ -3,22 +3,22 @@ from config import Config
 from forms import LoginForm, PersonalForm
 from models import PersonalModel, ExperienceModel, SkillsModel, EducationModel, ProjectsModel
 from werkzeug.security import check_password_hash
-from db import get_connection 
-import pymysql  
+from db import get_connection
+import pymysql
 import os
-from functools import wraps  
+from functools import wraps
 
 app = Flask(__name__)
 app.config.from_object(Config)
 
-# modelos (POO)
+# MODELOS
 personal_model = PersonalModel()
 experience_model = ExperienceModel()
 skills_model = SkillsModel()
 education_model = EducationModel()
 projects_model = ProjectsModel()
 
-# RUTAS PRINCIPALES
+# RUTA PRINCIPAL
 
 @app.route('/')
 def index():
@@ -27,10 +27,14 @@ def index():
     education = education_model.all()
     skills = skills_model.all()
     projects = projects_model.all()
+    return render_template('index.html',
+                            personal=personal,
+                            experiences=experiences,
+                            education=education,
+                            skills=skills,
+                            projects=projects)
 
-    return render_template('index.html', personal=personal, experiences=experiences, education=education, skills=skills, projects=projects)
-
-# descargar CV
+# CV
 @app.route('/download/cv')
 def download_cv():
     uploads = os.path.join(app.root_path, 'static', 'uploads')
@@ -43,26 +47,26 @@ def material():
     books = [
         {
             'title': 'Atomic Habits',
-            'description': 'Guía práctica sobre cómo crear buenos hábitos y eliminar los malos. Ideal para productividad y crecimiento personal.',
+            'description': 'Guía práctica sobre cómo crear buenos hábitos.',
             'filename': 'atomic_habits.pdf',
             'image': 'atomic_habits.jpg'
         },
         {
             'title': 'Padre Rico, Padre Pobre',
-            'description': 'Libro clásico sobre educación financiera, activos, pasivos y mentalidad de abundancia.',
+            'description': 'Clásico sobre educación financiera.',
             'filename': 'padre_rico_padre_pobre.pdf',
             'image': 'padre_rico_padre_pobre.jpg'
         },
         {
             'title': 'El Patrón Bitcoin',
-            'description': 'Analiza el contexto histórico del surgimiento de esta nueva moneda, sus propiedades económicas y sus implicaciones políticas y sociales.',
+            'description': 'Historia económica del Bitcoin.',
             'filename': 'el_patron_bitcoin.pdf',
             'image': 'el_patron_bitcoin.jpg'
         }
     ]
     return render_template('material.html', books=books)
 
-# descargar libros
+
 @app.route('/download/book/<filename>')
 def download_book(filename):
     uploads = os.path.join(app.root_path, 'static', 'uploads')
@@ -76,20 +80,23 @@ def login():
     if form.validate_on_submit():
         username = form.username.data
         password = form.password.data
+
         conn = get_connection()
         with conn.cursor(pymysql.cursors.DictCursor) as cur:
             cur.execute("SELECT * FROM admin WHERE username=%s", (username,))
             user = cur.fetchone()
         conn.close()
+
         if user and check_password_hash(user['password'], password):
             session['admin'] = user['username']
             flash('Acceso correcto', 'success')
             return redirect(url_for('admin_edit'))
         else:
             flash('Credenciales inválidas', 'danger')
+
     return render_template('login.html', form=form)
 
-# decorador de seguridad admin
+
 def admin_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
@@ -98,12 +105,14 @@ def admin_required(f):
         return f(*args, **kwargs)
     return decorated
 
-# panel de edicion de datos personales
+# PANEL ADMIN
+
 @app.route('/admin', methods=['GET', 'POST'])
 @admin_required
 def admin_edit():
     personal = personal_model.find(1)
     form = PersonalForm(obj=personal)
+
     if form.validate_on_submit():
         data = {
             'name': form.name.data,
@@ -115,94 +124,115 @@ def admin_edit():
             'about': form.about.data
         }
         personal_model.update(data)
-        flash('Datos personales actualizados correctamente.', 'success')
+        flash('Datos personales actualizados.', 'success')
         return redirect(url_for('admin_edit'))
+
     return render_template('admin_edit.html', form=form, personal=personal)
 
-# CRUD GENERAL
+# CRUD UNIFICADO (Education, Experience, Skills, Projects)
 
 @app.route('/edit/<tipo>/<int:id>', methods=['GET', 'POST'])
 @admin_required
 def edit_entry(tipo, id):
-    conn = get_connection()
-    cur = conn.cursor(pymysql.cursors.DictCursor)
 
-    # detectar tabla segun tipo
-    tablas = {'education': 'education', 'experience': 'experience', 'skills': 'skills'}
-    if tipo not in tablas:
-        flash('Tipo de registro desconocido.', 'danger')
+    modelos = {
+        'education': education_model,
+        'experience': experience_model,
+        'skills': skills_model,
+        'projects': projects_model
+    }
+
+    if tipo not in modelos:
+        flash("Tipo de registro desconocido.", "danger")
         return redirect(url_for('index'))
 
-    tabla = tablas[tipo]
-    cur.execute(f"SELECT * FROM {tabla} WHERE id=%s", (id,))
-    entry = cur.fetchone()
+    modelo = modelos[tipo]
+    entry = modelo.find(id)
 
     if request.method == 'POST':
         data = request.form.to_dict()
-        placeholders = ', '.join([f"{k}=%s" for k in data.keys()])
-        values = list(data.values()) + [id]
-        cur.execute(f"UPDATE {tabla} SET {placeholders} WHERE id=%s", values)
-        conn.commit()
-        conn.close()
-        flash('Registro actualizado correctamente.', 'success')
+
+        if tipo == 'projects':
+            modelo.update(id, data)
+        else:
+            conn = get_connection()
+            cur = conn.cursor()
+            placeholders = ", ".join([f"{k}=%s" for k in data.keys()])
+            values = list(data.values()) + [id]
+            cur.execute(f"UPDATE {tipo} SET {placeholders} WHERE id=%s", values)
+            conn.commit()
+            conn.close()
+
+        flash("Registro actualizado.", "success")
         return redirect(url_for('index'))
 
-    conn.close()
-    return render_template('edit_entry.html', tipo=tipo, entry=entry)
+    return render_template("edit_entry.html", tipo=tipo, entry=entry)
+
 
 @app.route('/add/<tipo>', methods=['GET', 'POST'])
 @admin_required
 def add_entry(tipo):
-    conn = get_connection()
-    cur = conn.cursor(pymysql.cursors.DictCursor)
 
-    # definir las columnas base para cada tipo
     campos = {
         'education': ['institution', 'degree', 'start_year', 'end_year', 'description'],
         'experience': ['company', 'role', 'start_date', 'end_date', 'description'],
-        'skills': ['name', 'level']
+        'skills': ['name', 'level'],
+        'projects': ['title', 'description', 'github', 'image']
     }
 
     if tipo not in campos:
-        flash('Tipo de registro desconocido.', 'danger')
+        flash("Tipo de registro desconocido.", "danger")
         return redirect(url_for('index'))
 
-    # si se envio el formulario
     if request.method == 'POST':
         data = request.form.to_dict()
-        columnas = ', '.join(data.keys())
-        valores = ', '.join(['%s'] * len(data))
-        cur.execute(f"INSERT INTO {tipo} ({columnas}) VALUES ({valores})", list(data.values()))
-        conn.commit()
-        conn.close()
-        flash('Registro agregado correctamente.', 'success')
+
+        if tipo == 'projects':
+            projects_model.create(data)
+        else:
+            conn = get_connection()
+            cur = conn.cursor()
+            columnas = ", ".join(data.keys())
+            valores = ", ".join(["%s"] * len(data))
+            cur.execute(f"INSERT INTO {tipo} ({columnas}) VALUES ({valores})", list(data.values()))
+            conn.commit()
+            conn.close()
+
+        flash("Registro agregado.", "success")
         return redirect(url_for('index'))
 
-    conn.close()
-    return render_template('add_entry.html', tipo=tipo, campos=campos[tipo])
+    return render_template("add_entry.html", tipo=tipo, campos=campos[tipo])
+
 
 @app.route('/delete/<tipo>/<int:id>')
 @admin_required
 def delete_entry(tipo, id):
-    conn = get_connection()
-    cur = conn.cursor()
+
+    if tipo == "projects":
+        projects_model.delete(id)
+        flash("Proyecto eliminado.", "success")
+        return redirect(url_for('index'))
+
     if tipo in ['education', 'experience', 'skills']:
+        conn = get_connection()
+        cur = conn.cursor()
         cur.execute(f"DELETE FROM {tipo} WHERE id=%s", (id,))
         conn.commit()
-        flash('Registro eliminado correctamente.', 'success')
-    else:
-        flash('Tipo de registro desconocido.', 'danger')
-    conn.close()
+        conn.close()
+        flash("Registro eliminado.", "success")
+        return redirect(url_for('index'))
+
+    flash("Tipo inválido.", "danger")
     return redirect(url_for('index'))
 
-# logout
+
+# LOGOUT
 @app.route('/logout')
 def logout():
     session.pop('admin', None)
-    flash('Sesión cerrada correctamente.', 'info')
+    flash('Sesión cerrada.', 'info')
     return redirect(url_for('index'))
 
-# MAIN
 
 if __name__ == '__main__':
     app.run(debug=True)
