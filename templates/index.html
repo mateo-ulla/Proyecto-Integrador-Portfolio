@@ -121,18 +121,17 @@
     <div class="bg-dark rounded p-3 position-relative">
 
       {% if session.get('admin') %}
-      <div class="position-absolute" style="top: -8px; right: -8px; display: flex; gap: 4px;">
+      <div class="position-absolute" style="top: -6px; right: -6px; z-index: 10;">
         <a href="{{ url_for('edit_entry', tipo='skills', id=s.id) }}"
-            class="btn btn-light btn-sm rounded-circle p-1"
-            style="width: 26px; height: 26px; display:flex; align-items:center; justify-content:center;">
-          <i class="bi bi-pencil text-dark" style="font-size:0.8rem;"></i>
+            class="btn btn-outline-light btn-xs p-1 me-1" style="font-size: 0.65rem;">
+          <i class="bi bi-pencil"></i>
         </a>
       
         <a href="{{ url_for('delete_entry', tipo='skills', id=s.id) }}"
-            class="btn btn-danger btn-sm rounded-circle p-1"
-            style="width: 26px; height: 26px; display:flex; align-items:center; justify-content:center;"
+            class="btn btn-outline-danger btn-xs p-1"
+            style="font-size: 0.65rem;"
             onclick="return confirm('¿Eliminar esta skill?');">
-          <i class="bi bi-x text-light" style="font-size:0.8rem;"></i>
+          <i class="bi bi-x"></i>
         </a>
       </div>
       
