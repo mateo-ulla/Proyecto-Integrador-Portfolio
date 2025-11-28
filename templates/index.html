@@ -116,37 +116,76 @@
 </div>
 
 <div class="row">
-  {% for s in skills %}
-  <div class="col-md-6 mb-3">
-    <div class="bg-dark rounded p-3 position-relative">
+
+  <!-- COLUMNA IZQUIERDA (Hard Skills) -->
+  <div class="col-md-6">
+    {% for s in skills[:6] %}
+    <div class="bg-dark rounded p-3 mb-3 position-relative">
 
       {% if session.get('admin') %}
-      <div class="position-absolute" style="top: -6px; right: -6px; z-index: 10;">
+      <div class="position-absolute" style="top: -10px; right: -6px; z-index: 10;">
         <a href="{{ url_for('edit_entry', tipo='skills', id=s.id) }}"
-            class="btn btn-outline-light btn-xs p-1 me-1" style="font-size: 0.65rem;">
+          class="btn btn-outline-light btn-xs p-1 me-1" style="font-size: 0.6rem;">
           <i class="bi bi-pencil"></i>
         </a>
-      
+
         <a href="{{ url_for('delete_entry', tipo='skills', id=s.id) }}"
-            class="btn btn-outline-danger btn-xs p-1"
-            style="font-size: 0.65rem;"
-            onclick="return confirm('¿Eliminar esta skill?');">
+          class="btn btn-outline-danger btn-xs p-1"
+          style="font-size: 0.6rem;"
+          onclick="return confirm('¿Eliminar esta skill?');">
           <i class="bi bi-x"></i>
         </a>
       </div>
-      
       {% endif %}
 
       <div class="d-flex justify-content-between">
         <span>{{ s.name }}</span>
         <span>{{ s.level }}%</span>
       </div>
+
       <div class="progress mt-1" style="height:8px;">
         <div class="progress-bar" role="progressbar" style="width:0%" data-target="{{ s.level }}"></div>
       </div>
+
     </div>
+    {% endfor %}
   </div>
-  {% endfor %}
+
+
+  <!-- COLUMNA DERECHA (Soft Skills + Idiomas) -->
+  <div class="col-md-6">
+    {% for s in skills[6:] %}
+    <div class="bg-dark rounded p-3 mb-3 position-relative">
+
+      {% if session.get('admin') %}
+      <div class="position-absolute" style="top: -10px; right: -6px; z-index: 10;">
+        <a href="{{ url_for('edit_entry', tipo='skills', id=s.id) }}"
+          class="btn btn-outline-light btn-xs p-1 me-1" style="font-size: 0.6rem;">
+          <i class="bi bi-pencil"></i>
+        </a>
+
+        <a href="{{ url_for('delete_entry', tipo='skills', id=s.id) }}"
+          class="btn btn-outline-danger btn-xs p-1"
+          style="font-size: 0.6rem;"
+          onclick="return confirm('¿Eliminar esta skill?');">
+          <i class="bi bi-x"></i>
+        </a>
+      </div>
+      {% endif %}
+
+      <div class="d-flex justify-content-between">
+        <span>{{ s.name }}</span>
+        <span>{{ s.level }}%</span>
+      </div>
+
+      <div class="progress mt-1" style="height:8px;">
+        <div class="progress-bar" role="progressbar" style="width:0%" data-target="{{ s.level }}"></div>
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+
 </div>
 
 <hr class="my-4">

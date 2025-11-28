@@ -98,11 +98,11 @@ INSERT INTO education (institution, degree, start_year, end_year, description) V
 -- seed skills
 INSERT INTO skills (name, level) VALUES
 ('Python', 90),
+('React.js', 90),
 ('Flask', 85),
 ('MySQL', 85),
 ('HTML/CSS', 80),
 ('JavaScript', 80),
-('Español (Nativo)', 100),
 ('Inglés (Nivel B2 - ECCE)', 90),
 ('Trabajo en equipo', 90),
 ('Liderazgo', 95),
