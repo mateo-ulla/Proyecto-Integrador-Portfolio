@@ -120,7 +120,7 @@ INSERT INTO projects (title, description, github, image) VALUES
 
 ('Detailhaus - Fundador',
   'Emprendimiento personal de detailing automotriz. Gestión de clientes y marketing digital (SEO y SEM). Uso de WhatsApp Business, Facebook Ads y redes sociales.',
-  NULL,
+  'https://www.instagram.com/detailhaus.cba/',
   'detailhaus.jpg'
 ),
 
