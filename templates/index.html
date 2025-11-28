@@ -8,7 +8,7 @@
   </div>
   <div class="col-md-8">
     <h1 class="display-6">{{ personal.name }}</h1>
-    <h4 class="text-muted">{{ personal.title }}</h4>
+    <h4 class="text-light">{{ personal.title }}</h4>
     <p class="lead">{{ personal.about }}</p>
     <p>
       <a href="{{ personal.linkedin }}" target="_blank">Linkedin</a> |
@@ -41,9 +41,9 @@
           <i class="bi bi-pencil"></i>
         </a>
         <a href="{{ url_for('delete_entry', tipo='experience', id=e.id) }}"
-           class="btn btn-sm btn-outline-danger"
-           onclick="return confirm('¿Eliminar esta experiencia?');">
-           <i class="bi bi-x"></i>
+            class="btn btn-sm btn-outline-danger"
+            onclick="return confirm('¿Eliminar esta experiencia?');">
+            <i class="bi bi-x"></i>
         </a>
       </div>
       {% endif %}
@@ -83,9 +83,9 @@
           <i class="bi bi-pencil"></i>
         </a>
         <a href="{{ url_for('delete_entry', tipo='education', id=e.id) }}"
-           class="btn btn-sm btn-outline-danger"
-           onclick="return confirm('¿Eliminar esta educación?');">
-           <i class="bi bi-x"></i>
+            class="btn btn-sm btn-outline-danger"
+            onclick="return confirm('¿Eliminar esta educación?');">
+            <i class="bi bi-x"></i>
         </a>
       </div>
       {% endif %}
@@ -126,8 +126,8 @@
           <i class="bi bi-pencil"></i>
         </a>
         <a href="{{ url_for('delete_entry', tipo='skills', id=s.id) }}"
-           class="btn btn-sm btn-outline-danger"
-           onclick="return confirm('¿Eliminar esta skill?');">
+            class="btn btn-sm btn-outline-danger"
+            onclick="return confirm('¿Eliminar esta skill?');">
           <i class="bi bi-x"></i>
         </a>
       </div>
@@ -169,9 +169,9 @@
           <i class="bi bi-pencil"></i>
         </a>
         <a href="{{ url_for('delete_entry', tipo='projects', id=p.id) }}"
-           class="btn btn-sm btn-outline-danger"
-           onclick="return confirm('¿Eliminar este proyecto?');">
-           <i class="bi bi-x"></i>
+            class="btn btn-sm btn-outline-danger"
+            onclick="return confirm('¿Eliminar este proyecto?');">
+            <i class="bi bi-x"></i>
         </a>
       </div>
       {% endif %}

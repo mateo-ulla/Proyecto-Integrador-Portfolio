@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS personal (
   email VARCHAR(200),
   about TEXT,
   linkedin VARCHAR(255),
-  github VARCHAR(255)
+  github VARCHAR(255),
 );
 
 -- tabla experience 
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS projects (
   id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(255),
   description TEXT,
-  github VARCHAR(255),
+  link VARCHAR(255),
   image VARCHAR(255)
 );
 
@@ -67,7 +67,7 @@ INSERT INTO personal (id, name, title, phone, email, about, linkedin, github)
 VALUES (
   1,
   'Mateo Ulla',
-  'Estudiante - Programación y AI',
+  'Estudiante - Programación, AI y Finanzas',
   '(351) 810-4498',
   'mateoullaa@gmail.com',
   'Estudiante de Programación con
@@ -113,37 +113,37 @@ INSERT INTO skills (name, level) VALUES
 -- seed projects
 INSERT INTO projects (title, description, github, image) VALUES
 ('Portfolio Web (Proyecto Integrador)',
- 'Aplicación web full stack con Flask, MySQL y Bootstrap. Incluye login, panel de edición y diseño adaptable.',
- 'https://github.com/mateo-ulla/Proyecto-Integrador-Portfolio',
- 'portfolio_web.jpg'
+  'Aplicación web full stack con Flask, MySQL y Bootstrap. Incluye login, panel de edición y diseño adaptable.',
+  'https://github.com/mateo-ulla/Proyecto-Integrador-Portfolio',
+  'portfolio_web.jpg'
 ),
 
 ('Detailhaus - Fundador',
- 'Emprendimiento personal de detailing automotriz. Gestión de clientes, marketing digital y operaciones. Uso de WhatsApp Business, Facebook Ads y redes sociales.',
- NULL,
- 'detailhaus.jpg'
+  'Emprendimiento personal de detailing automotriz. Gestión de clientes y marketing digital (SEO y SEM). Uso de WhatsApp Business, Facebook Ads y redes sociales.',
+  NULL,
+  'detailhaus.jpg'
 ),
 
 ('Taller Mecánico (con Django)',
- 'Proyecto desarrollado para un taller mecánico. Basado en el sistema previo hecho con Flet, este proyecto traslada la lógica a un sitio web con HTML, CSS, Bootstrap y Django Templates.',
- 'https://github.com/mateo-ulla/Taller-Mecanico-Django-V2',
- 'taller_mecanico.jpg'
+  'Proyecto desarrollado para un taller mecánico. Basado en el sistema previo hecho con Flet, este proyecto traslada la lógica a un sitio web con HTML, CSS, Bootstrap y templates de Django.',
+  'https://github.com/mateo-ulla/Taller-Mecanico-Django-V2',
+  'taller_mecanico.jpg'
 ),
 
 ('Aula Virtual (con Flask)',
- 'Aplicación web para gestión educativa: cursos, materiales, evaluaciones y usuarios. Desarrollada con Flask, MySQL y Bootstrap.',
- 'https://github.com/mateo-ulla/Aula-Virtual',
- 'aula_virtual.jpg'
+  'Aplicación web para gestión educativa: cursos, materiales, evaluaciones y usuarios. Desarrollada con Flask, MySQL y Bootstrap.',
+  'https://github.com/mateo-ulla/Aula-Virtual',
+  'aula_virtual.jpg'
 ),
 
 ('Simulador de Cobro (API de Mercado Pago)',
- 'App en Flask para simular compras y cobros con tarjeta simulada y Mercado Pago (Checkout Pro).',
- 'https://github.com/mateo-ulla/App-de-cobro',
- 'app_cobro.jpg'
+  'App en Flask para simular compras y cobros con tarjeta simulada y Mercado Pago (Checkout Pro).',
+  'https://github.com/mateo-ulla/App-de-cobro',
+  'app_cobro.jpg'
 ),
 
 ('Copa Renault App',
- 'Aplicación web para gestión de la Copa Renault: equipos, partidos, reservas de cantina y sponsors. Hecha con Flask y Bootstrap.',
- 'https://github.com/mateo-ulla/App-Copa-Renault',
- 'copa_renault.jpg'
+  'Aplicación web para gestión de la Copa Renault: equipos, partidos, reservas de cantina y sponsors. Hecha con Flask y Bootstrap.',
+  'https://github.com/mateo-ulla/App-Copa-Renault',
+  'copa_renault.jpg'
 );
