@@ -67,19 +67,14 @@ INSERT INTO personal (id, name, title, phone, email, about, linkedin, github)
 VALUES (
   1,
   'Mateo Ulla',
-  'Estudiante - Programación, AI y Finanzas',
+  'Estudiante - Programación y Finanzas',
   '(351) 810-4498',
   'mateoullaa@gmail.com',
-  'Estudiante de Programación con
-orientación en Inteligencia Artificial y
-Finanzas, apasionado por los negocios y
-los emprendimientos.
-Experiencia como fundador de un servicio
-de detailing automotriz.
-Orientado al crecimiento en el ambito
-tecnológico y financiero, aplicando
-habilidades en programación, análisis y
-liderazgo.
+  'Estudiante de Programación con fuerte interés en el ámbito financiero, apasionado por los negocios y los emprendimientos. 
+
+Aplico habilidades de programación, análisis y liderazgo en proyectos orientados al crecimiento personal y profesional. 
+
+Motivado, proactivo y comprometido con la mejora continua.
 ',
   'https://www.linkedin.com/in/mateoulla/',
   'https://github.com/mateo-ulla'
@@ -87,12 +82,11 @@ liderazgo.
 
 -- seed experience 
 INSERT INTO experience (company, role, start_date, end_date, description) VALUES
-('Título', 'Subtítulo', '0000', '0000', 'Descripción'),
-('Título', 'Subtítulo', '0000', '0000', 'Descripción');
+('Detailhaus', 'Fundador', ' 2021', '2023', 'Fundador de un servicio de detailing automotriz. Gestión de clientes, marketing digital (SEO y SEM) y operaciones diarias. Uso de herramientas como WhatsApp Business, Facebook Ads y redes sociales para promoción y comunicación con clientes.');
 
 -- seed de educacion
 INSERT INTO education (institution, degree, start_year, end_year, description) VALUES
-('Instituto Técnico Renault', 'Técnico en Programación', '2019', '2025', 'Formacion técnica con orientación en programación, bases de datos y sistemas.'),
+('Instituto Técnico Renault', 'Técnico en Programación', '2020', '2026', 'Formacion técnica con orientación en programación, bases de datos y sistemas.'),
 ('IICANA', 'Certificación de Inglés ECCE - Nivel B2', '2016', '2025', 'Certificación internacional de inglés intermedio alto (nivel B2).');
 
 -- seed skills
